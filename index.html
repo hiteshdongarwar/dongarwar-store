@@ -467,23 +467,24 @@
         /* ✅ Mobile Vertical Product Fix */
         
         @media (max-width: 600px) {
-            .h-scroll {
-                flex-wrap: wrap;
-                /* horizontal band */
-                overflow-x: hidden;
+            /* 🔥 Trending – horizontal hi rahe */
+            #trendingWrap {
+                flex-wrap: nowrap;
+                overflow-x: auto;
             }
-            .card {
+            #trendingWrap .card {
+                min-width: 210px;
+            }
+            /* 🛒 Main products – vertical grid */
+            .vertical-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .vertical-list .card {
                 width: 100%;
-                /* full width */
                 min-width: unset;
-                /* IMPORTANT */
             }
-        }
-        
-        .vertical-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
         }
     </style>
 </head>
