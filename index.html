@@ -753,7 +753,7 @@
     let grandTotal = subtotal + delivery;
 
     document.getElementById("total").innerText =
-        "₹" + grandTotal + (delivery ? " (₹20 delivery)" : "");
+        "₹" + grandTotal + (delivery ? " (₹10 delivery)" : "");
 
     // 👇 Free delivery bar update
     updateFreeDelivery(subtotal);
@@ -874,7 +874,7 @@ Please confirm my order 🙏`;
     `).join("");
 }
 const FREE_DELIVERY_LIMIT = 499;
-const DELIVERY_CHARGE = 20;
+const DELIVERY_CHARGE = 10;
 
 
 function updateFreeDelivery(subtotal) {
