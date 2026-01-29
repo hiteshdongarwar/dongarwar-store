@@ -464,6 +464,27 @@
                 transform: scale(1);
             }
         }
+        /* ✅ Mobile Vertical Product Fix */
+        
+        @media (max-width: 600px) {
+            .h-scroll {
+                flex-wrap: wrap;
+                /* horizontal band */
+                overflow-x: hidden;
+            }
+            .card {
+                width: 100%;
+                /* full width */
+                min-width: unset;
+                /* IMPORTANT */
+            }
+        }
+        
+        .vertical-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
     </style>
 </head>
 
@@ -646,33 +667,26 @@
 
         function renderProducts(list) {
             document.getElementById("storesWrap").innerHTML = `
-  <div class="shop-section">
-    <div class="shop-header">
-      <div class="shop-name">DONGARWAR Store</div>
-      <div class="status-badge online">OPEN</div>
-    </div>
+    <div class="shop-section">
+      <div class="shop-header">
+        <div class="shop-name">DONGARWAR Store</div>
+        <div class="status-badge online">OPEN</div>
+      </div>
 
-    <div class="v-grid">
-      ${list.map(p=>`
-        <div class="card">
-          <img src="${p.img}">
-          <div class="card-title">${p.name}</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div>
-  <div class="price">₹${p.price}</div>
-  ${p.mrp ? `<div style="font-size:13px;color:#999;text-decoration:line-through">₹${p.mrp}</div>` : ""}
-</div>
-
-            <button class="add-btn"
-  ${p.stock === 0 ? "disabled style='background:#ccc'" : `onclick="addToCart(${p.id})"`}>
-  ${p.stock === 0 ? "X" : "+"}
-</button>
-
+      <div class="vertical-list">
+        ${list.map(p => `
+          <div class="card">
+            <img src="${p.img}">
+            <div class="card-title">${p.name}</div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="price">₹${p.price}</div>
+              <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+            </div>
           </div>
-        </div>
-      `).join("")}
+        `).join("")}
+      </div>
     </div>
-  </div>`;
+  `;
 }
 
 
