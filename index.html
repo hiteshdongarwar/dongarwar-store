@@ -919,26 +919,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function closeImg() {
   document.getElementById("imgModal").classList.remove("show");
+  document.getElementById("imgModal").onclick = e => {
+  if (e.target.id === "imgModal") closeImg();
+};
+
 }
     </script>
     <!-- IMAGE PREVIEW MODAL -->
     <div class="modal-overlay" id="imgModal">
-        <div class="modal-card" style="padding:15px; align-items:center;">
+        <div class="modal-card" style="padding:0; position:relative;">
+
+            <!-- CLOSE BUTTON -->
+            <span onclick="closeImg()" style="
+      position:absolute;
+      top:12px;
+      right:12px;
+      z-index:10;
+      font-size:28px;
+      color:white;
+      background:rgba(0,0,0,0.6);
+      width:42px;
+      height:42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      cursor:pointer;
+    ">✕</span>
+
+            <!-- IMAGE -->
             <img id="previewImg" src="" style="
       width:100%;
-      max-height:80vh;
+      max-height:90vh;
       object-fit:contain;
-      border-radius:20px;
+      border-radius:0 0 20px 20px;
+      background:black;
     ">
-            <button onclick="closeImg()" style="
-      margin-top:15px;
-      padding:10px 20px;
-      border:none;
-      border-radius:12px;
-      background:#121212;
-      color:white;
-      font-weight:700;
-    ">Close</button>
         </div>
     </div>
 
