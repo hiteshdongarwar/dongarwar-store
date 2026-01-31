@@ -11,7 +11,7 @@
 
     <style>
          :root {
-            --primary: #FF4B3A;
+            --primary: #6C5CE7;
             --dark: #121212;
             --gray: #F5F5F8;
             --white: #ffffff;
@@ -222,6 +222,14 @@
             animation: fadeInUp 0.5s ease;
         }
         
+        .shop-section::after {
+            content: "";
+            display: block;
+            height: 1px;
+            background: #eee;
+            margin-top: 20px;
+        }
+        
         .shop-header {
             display: flex;
             justify-content: space-between;
@@ -270,6 +278,15 @@
             transition: 0.2s;
         }
         
+        .card {
+            transition: 0.25s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+        }
+        
         .card img {
             width: 100%;
             height: 130px;
@@ -281,11 +298,13 @@
             font-size: 16px;
             font-weight: 700;
             margin: 10px 0 5px;
+            line-height: 1.3;
         }
         
         .price {
             font-size: 17px;
             font-weight: 800;
+            color: #ff4b3a;
         }
         
         .add-btn {
@@ -316,6 +335,7 @@
             transform: translateY(100px);
             opacity: 0;
             transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
         
         .fab-cart.visible {
