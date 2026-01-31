@@ -618,78 +618,82 @@
     <script>
         const PHONE = "919322144882";
         const products = [{
-                id: 1,
-                name: "Garnier Facewash",
-                price: 115,
-                cat: "Cosmetics",
-                img: "https://m.media-amazon.com/images/I/61nVOy19a-L.jpg"
-            }, {
-                id: 2,
-                name: "Himalaya Face Wash",
-                price: 20,
-                cat: "Cosmetics",
-                img: "https://adn-static1.nykaa.com/media/wysiwyg/HH_NEEMs1.jpg?tr=w-400,pr-true"
-            }, {
-                id: 3,
-                name: "Bellavita Honey OUD Perfume",
-                price: 149,
-                mrp: 175,
-                cat: "General",
-                img: "https://m.media-amazon.com/images/I/51wORUd8k1L._AC_UL480_FMwebp_QL65_.jpg"
-            }, {
-                id: 4,
-                name: "Room Freshner Spray",
-                price: 149,
-                mrp: 169,
-                cat: "General",
-                img: "https://m.media-amazon.com/images/I/61nao4paPES.jpg"
-            }, {
-                id: 5,
-                name: "Colin (125 ml)",
-                price: 40,
-                cat: "General",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrea4-zHOQZD-oL4pCuqERk7KS9YK91SQN4g&s"
-            }, {
-                id: 6,
-                name: "Garnier Men Acnofight",
-                price: 110,
-                mrp: 120,
-                stock: 0,
-                cat: "General",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sYAFEe5jDELXoYpzB1Ksy3o21_qlDigjOg&s"
-            }, {
-                id: 7,
-                name: "men scarf",
-                price: 80,
-                cat: "Clothes",
-                img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQBLqjar8MnUgAbKzRLufcq9v6AnMUEL1PEUpns9HJ_CKQ7YHlmG9QS326lWV4UoA_TPJAzv7imwHNY-pkxN_kOXPNXblbP90-vcLNzF9ioX_MlY7b703crBw"
-            }, {
-                id: 8,
-                name: "Comfort (210 ml)",
-                price: 58,
-                cat: "General",
-                img: "https://quickeselling.blob.core.windows.net/qesliveimages/uploads/10143/products/1589889283_comfort_after_wash_morning_fresh_fabric_conditioner_220_ml.jpg"
-            }, {
-                id: 9,
-                name: "Comfort (860 ml)",
-                price: 235,
-                cat: "General",
-                img: "https://m.media-amazon.com/images/I/61jY0St3PGL.jpg"
-            }, {
-                id: 10,
-                name: "mens lower pant",
-                price: 250,
-                cat: "Clothes",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
-            }, {
-                id: 11,
-                name: "Ponds Powder (100gm)",
-                price: 125,
-                cat: "Cosmetic",
-                img: "images/ponds.jpg"
-            },
-
-        ];
+            id: 1,
+            name: "Garnier Facewash",
+            price: 115,
+            cat: "Cosmetics",
+            img: "https://m.media-amazon.com/images/I/61nVOy19a-L.jpg"
+        }, {
+            id: 2,
+            name: "Himalaya Face Wash",
+            price: 20,
+            cat: "Cosmetics",
+            img: "https://adn-static1.nykaa.com/media/wysiwyg/HH_NEEMs1.jpg?tr=w-400,pr-true"
+        }, {
+            id: 3,
+            name: "Bellavita Honey OUD Perfume",
+            price: 149,
+            mrp: 175,
+            cat: "General",
+            img: "https://m.media-amazon.com/images/I/51wORUd8k1L._AC_UL480_FMwebp_QL65_.jpg"
+        }, {
+            id: 4,
+            name: "Room Freshner Spray",
+            price: 149,
+            mrp: 169,
+            cat: "General",
+            img: "https://m.media-amazon.com/images/I/61nao4paPES.jpg"
+        }, {
+            id: 5,
+            name: "Colin (125 ml)",
+            price: 40,
+            cat: "General",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrea4-zHOQZD-oL4pCuqERk7KS9YK91SQN4g&s"
+        }, {
+            id: 6,
+            name: "Garnier Men Acnofight",
+            price: 110,
+            mrp: 120,
+            stock: 0,
+            cat: "General",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sYAFEe5jDELXoYpzB1Ksy3o21_qlDigjOg&s"
+        }, {
+            id: 7,
+            name: "men scarf",
+            price: 80,
+            cat: "Clothes",
+            img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQBLqjar8MnUgAbKzRLufcq9v6AnMUEL1PEUpns9HJ_CKQ7YHlmG9QS326lWV4UoA_TPJAzv7imwHNY-pkxN_kOXPNXblbP90-vcLNzF9ioX_MlY7b703crBw"
+        }, {
+            id: 8,
+            name: "Comfort (210 ml)",
+            price: 58,
+            cat: "General",
+            img: "https://quickeselling.blob.core.windows.net/qesliveimages/uploads/10143/products/1589889283_comfort_after_wash_morning_fresh_fabric_conditioner_220_ml.jpg"
+        }, {
+            id: 9,
+            name: "Comfort (860 ml)",
+            price: 235,
+            cat: "General",
+            img: "https://m.media-amazon.com/images/I/61jY0St3PGL.jpg"
+        }, {
+            id: 10,
+            name: "mens lower pant",
+            price: 250,
+            cat: "Clothes",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
+        }, {
+            id: 11,
+            name: "Ponds Powder (100gm)",
+            price: 125,
+            cat: "Cosmetics",
+            img: "images/ponds.jpg"
+        }, {
+            id: 12,
+            name: "Garnier Cream",
+            price: 109,
+            cat: "Cosmetics",
+            img: "images/vitaminc.jpg"
+        }, ];
 
         let cart = [];
 
