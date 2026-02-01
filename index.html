@@ -563,14 +563,7 @@
         </div>
 
         <div class="chips" id="categoryChips"></div>
-        <!-- TRENDING PRODUCTS -->
-        <div class="shop-section">
-            <div class="shop-header">
-                <div class="shop-name">🔥 Trending Products</div>
-            </div>
 
-            <div class="h-scroll" id="trendingWrap"></div>
-        </div>
 
 
         <div id="storesWrap"></div>
@@ -971,22 +964,9 @@ Please confirm my order 🙏`;
         // Init
         renderCategories();
         renderProducts(products);
-        renderTrending();
+        
 
-        function renderTrending() {
-    const trending = products.slice(0, 4); // top 4 products
-    document.getElementById("trendingWrap").innerHTML = trending.map(p => `
-        <div class="card">
-            <img src="${p.img}" onclick="openImg('${p.img}')" style="cursor:zoom-in;">
-
-            <div class="card-title">${p.name}</div>
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div class="price">₹${p.price}</div>
-                <button class="add-btn" onclick="addToCart(${p.id})">+</button>
-            </div>
-        </div>
-    `).join("");
-}
+        
 const FREE_DELIVERY_LIMIT = 99;
 const DELIVERY_CHARGE = 10;
 
