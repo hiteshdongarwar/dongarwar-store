@@ -522,6 +522,15 @@
                 min-width: unset;
             }
         }
+        
+        .category-sticky {
+            position: sticky;
+            top: 60px;
+            /* header ke niche */
+            z-index: 80;
+            background: var(--gray);
+            padding-top: 10px;
+        }
     </style>
 </head>
 
@@ -562,7 +571,10 @@
             <input class="search-box" id="searchInput" placeholder="Search products...">
         </div>
 
-        <div class="chips" id="categoryChips"></div>
+        <div class="category-sticky">
+            <div class="chips" id="categoryChips"></div>
+        </div>
+
 
 
 
