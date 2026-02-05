@@ -1,0 +1,539 @@
+:root {
+    --primary: #6C5CE7;
+    --dark: #121212;
+    --gray: #F5F5F8;
+    --white: #ffffff;
+    --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    --glass: rgba(255, 255, 255, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: var(--gray);
+    color: var(--dark);
+    padding-bottom: 120px;
+    overflow-x: hidden;
+}
+
+
+/* --- HEADER --- */
+
+.header {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 20px;
+    border-bottom: var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #5a189a;
+}
+
+
+/* --- TICKER --- */
+
+.ticker-wrap {
+    background: var(--dark);
+    color: white;
+    overflow: hidden;
+    height: 34px;
+    display: flex;
+    align-items: center;
+}
+
+.ticker {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+.ticker span {
+    padding: 0 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* --- HERO BANNER --- */
+
+.hero-banner {
+    width: 100%;
+    height: 180px;
+    /* ya jo bhi height chahiye */
+    border-radius: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    background-image: url('../images/banner2..jpeg');
+    /* yaha apni image ka path daalo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 10s infinite alternate;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    color: white;
+}
+
+.hero-overlay h2 {
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0;
+}
+
+.hero-overlay p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+
+/* --- SEARCH & CHIPS --- */
+
+.search-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search-box {
+    background: white;
+    padding: 14px 16px 14px 45px;
+    border-radius: 18px;
+    width: 100%;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-soft);
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.search-box:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 5px 20px rgba(255, 75, 58, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 20px;
+}
+
+.chips {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+}
+
+.chip {
+    padding: 10px 20px;
+    border-radius: 40px;
+    background: white;
+    border: 1px solid #eee;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    white-space: nowrap;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.chip.active {
+    background: var(--dark);
+    color: white;
+    border-color: var(--dark);
+}
+
+
+/* --- STORES & CARDS --- */
+
+.shop-section {
+    margin-bottom: 30px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.shop-section::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #eee;
+    margin-top: 20px;
+}
+
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.shop-name {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.status-badge {
+    font-size: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+}
+
+.status-badge.online {
+    background: #00b894;
+}
+
+.h-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 5px 5px 25px;
+    scrollbar-width: none;
+}
+
+.v-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    min-width: 210px;
+    background: white;
+    border-radius: 24px;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+}
+
+.card {
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0 5px;
+    line-height: 1.3;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 800;
+    color: #ff4b3a;
+}
+
+.add-btn {
+    width: 38px;
+    height: 38px;
+    background: var(--dark);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* --- FLOATING UI --- */
+
+.fab-cart {
+    position: fixed;
+    bottom: 95px;
+    right: 20px;
+    background: var(--dark);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 40px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 90;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fab-cart.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-6px)
+    }
+}
+
+
+/* --- MODALS --- */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: none;
+    align-items: flex-end;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-card {
+    background: white;
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    padding: 25px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.modal-overlay.show .modal-card {
+    transform: translateY(0);
+}
+
+.cart-list {
+    overflow-y: auto;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.qty-ctrl {
+    display: flex;
+    gap: 12px;
+    background: #f4f4f8;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.bill-box {
+    background: #f9f9fb;
+    padding: 15px;
+    border-radius: 18px;
+    border: 1px dashed #ddd;
+    margin-bottom: 15px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 16px;
+    background: #2ed573;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* Form Styling */
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.ai-bubble {
+    background: #f0f0f5;
+    padding: 16px;
+    border-radius: 18px 18px 18px 4px;
+    margin: 15px 0;
+}
+
+.toast {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #121212;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.cod-badge {
+    background: #eafaf1;
+    color: #0a8f4d;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 14px;
+    text-align: center;
+    margin-bottom: 12px;
+    border: 1px dashed #2ed573;
+}
+
+#splash {
+    position: fixed;
+    inset: 0;
+    background: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.12s ease;
+}
+
+.splash-text {
+    font-size: 42px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    animation: splashAnim 0.7s ease-out forwards;
+}
+
+@keyframes splashAnim {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ✅ Mobile Vertical Product Fix */
+
+@media (max-width: 600px) {
+    /* 🔥 Trending – horizontal hi rahe */
+    #trendingWrap {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    #trendingWrap .card {
+        min-width: 210px;
+    }
+    /* 🛒 Main products – vertical grid */
+    .vertical-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .vertical-list .card {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+.category-sticky {
+    position: sticky;
+    top: 60px;
+    /* header ke niche */
+    z-index: 80;
+    background: var(--gray);
+    padding-top: 10px;
+}
