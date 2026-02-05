@@ -195,6 +195,12 @@ const products = [{
         price: 20,
         cat: "Clothes",
         img: "images/bandana.jpg"
+    }, {
+        id: 33,
+        name: "Himalaya Lipbalm",
+        price: 20,
+        cat: "Cosmetics",
+        img: "images/lip.jpg"
     },
 
 
