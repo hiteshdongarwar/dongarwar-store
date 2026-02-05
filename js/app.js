@@ -96,7 +96,7 @@ const products = [{
     }, {
         id: 16,
         name: "Magnet Perfume",
-        price: 255,
+        price: 230,
         cat: "Perfumes",
         img: "images/magnet1.jpg"
     }, {
@@ -138,7 +138,7 @@ const products = [{
     }, {
         id: 23,
         name: "Khushbu oil (100ml)",
-        price: 65,
+        price: 60,
         cat: "Hair oils",
         img: "images/khushbu.jpg"
     }, {
