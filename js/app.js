@@ -96,7 +96,7 @@ const products = [{
     }, {
         id: 16,
         name: "Magnet Perfume",
-        price: 230,
+        price: 240,
         cat: "Perfumes",
         img: "images/magnet1.jpg"
     }, {
