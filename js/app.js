@@ -101,7 +101,7 @@ const products = [{
         img: "images/magnet1.jpg"
     }, {
         id: 17,
-        name: "attar",
+        name: "sandal attar",
         price: 50,
         cat: "Perfumes",
         img: "images/sandal.jpg.jpeg"
@@ -155,13 +155,13 @@ const products = [{
         img: "images/sandal2.jpg"
     }, {
         id: 26,
-        name: "attar",
+        name: "jannatul attar",
         price: 50,
         cat: "Perfumes",
         img: "images/jannatul.jpg.jpeg"
     }, {
         id: 27,
-        name: "attar",
+        name: "Shirlie attar",
         price: 50,
         cat: "Perfumes",
         img: "images/roll.jpg.jpeg"
