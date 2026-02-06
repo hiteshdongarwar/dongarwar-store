@@ -201,6 +201,14 @@ const products = [{
         price: 20,
         cat: "Cosmetics",
         img: "images/lip.jpg"
+    }, {
+        id: 34,
+        name: "Saffron",
+        price: 60,
+        cat: "Cosmetics",
+        img: "images/saffron.jpg",
+        createdAt: Date.now()
+
     },
 
 
@@ -215,6 +223,8 @@ function renderCategories() {
                 <div class="chip ${i === 0 ? 'active' : ''}" onclick="filterCat('${c}', this)">${c}</div>
             `).join("");
 }
+
+products.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
 function renderProducts(list) {
     document.getElementById("storesWrap").innerHTML = `
