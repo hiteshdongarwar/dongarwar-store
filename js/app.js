@@ -209,6 +209,44 @@ const products = [{
         img: "images/saffron.jpg",
         createdAt: Date.now()
 
+    }, {
+        id: 35,
+        name: "Whitetone Cream",
+        price: 48,
+        cat: "Cosmetics",
+        img: "images/whitecream.jpg",
+        createdAt: Date.now()
+
+    }, {
+        id: 36,
+        name: "Whitetone Powder",
+        price: 65,
+        cat: "Cosmetics",
+        img: "images/whitepowder.jpg",
+        createdAt: Date.now()
+
+    }, {
+        id: 37,
+        name: "Himalaya Baby Lotion (100ml)",
+        price: 115,
+        cat: "Cosmetics",
+        img: "images/himalayalotion.jpg",
+        createdAt: Date.now()
+
+    }, {
+        id: 38,
+        name: "Himalaya Baby Powder (50gm)",
+        price: 60,
+        cat: "Cosmetics",
+        img: "images/himalayapowder.jpg",
+        createdAT: Date.now()
+    }, {
+        id: 39,
+        name: "Himalaya Baby massage oil (50ml)",
+        price: 75,
+        cat: "Cosmetics",
+        img: "images/himalayaoil.jpg",
+        createdAT: Date.now()
     },
 
 
