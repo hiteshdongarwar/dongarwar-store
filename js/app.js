@@ -203,7 +203,7 @@ const products = [{
         img: "images/lip.jpg"
     }, {
         id: 34,
-        name: "Saffron",
+        name: "Saffron cream brown",
         price: 60,
         cat: "Cosmetics",
         img: "images/saffron.jpg",
@@ -246,6 +246,13 @@ const products = [{
         price: 75,
         cat: "Cosmetics",
         img: "images/himalayaoil.jpg",
+        createdAt: Date.now()
+    }, {
+        id: 40,
+        name: "Saffron cream gold",
+        price: 60,
+        cat: "Cosmetics",
+        img: "images/saffron2.jpg",
         createdAt: Date.now()
     },
 
