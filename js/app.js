@@ -239,19 +239,34 @@ const products = [{
         price: 60,
         cat: "Cosmetics",
         img: "images/himalayapowder.jpg",
-        createdAT: Date.now()
+        createdAt: Date.now()
     }, {
         id: 39,
         name: "Himalaya Baby massage oil (50ml)",
         price: 75,
         cat: "Cosmetics",
         img: "images/himalayaoil.jpg",
-        createdAT: Date.now()
+        createdAt: Date.now()
     },
 
 
 
 ];
+products.forEach((p, index) => {
+    if (!p.createdAt) {
+        p.createdAt = 1; // sab purane products ko same old time
+    }
+});
+
+function getSortedProducts(list) {
+    return [...list].sort((a, b) => {
+        if (b.createdAt !== a.createdAt) {
+            return b.createdAt - a.createdAt; // NEWEST FIRST
+        }
+        return b.id - a.id; // fallback (extra safety)
+    });
+}
+
 
 let cart = [];
 
@@ -413,13 +428,23 @@ Please confirm my order 🙏`;
         // --- SEARCH & FILTER ---
         document.getElementById("searchInput").oninput = e => {
             const v = e.target.value.toLowerCase();
-            renderProducts(products.filter(p => p.name.toLowerCase().includes(v)));
+            const filtered = products.filter(p =>
+  p.name.toLowerCase().includes(v)
+);
+renderProducts(getSortedProducts(filtered));
+
         };
 
         function filterCat(cat, el) {
             document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
             el.classList.add("active");
-            renderProducts(cat === "All" ? products : products.filter(p => p.cat === cat));
+            const filtered =
+  cat === "All"
+    ? products
+    : products.filter(p => p.cat === cat);
+
+renderProducts(getSortedProducts(filtered));
+
         }
 
         // --- AI & UTILS ---
@@ -434,7 +459,8 @@ Please confirm my order 🙏`;
 
         // Init
         renderCategories();
-        renderProducts(products);
+        renderProducts(getSortedProducts(products));
+
         
 
         
