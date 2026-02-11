@@ -537,3 +537,144 @@ body {
     background: var(--gray);
     padding-top: 10px;
 }
+
+
+/* ===== MODERN TOUCH UPGRADE ===== */
+
+
+/* Hero banner premium look */
+
+.hero-banner {
+    height: 180px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+/* Category chips modern */
+
+.chips button {
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.chips button:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* Product card smooth */
+
+.product-card {
+    transition: 0.3s ease;
+    border-radius: 18px;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Floating cart premium */
+
+.fab-cart {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.fab-cart:hover {
+    transform: scale(1.05);
+}
+
+
+/* Modal smooth */
+
+.modal-card {
+    border-radius: 22px;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selling-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+}
+
+.mrp {
+    font-size: 14px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.mrp {
+    text-decoration: line-through;
+    font-size: 12px;
+    color: #888;
+    margin-left: 6px;
+}
+
+.discount {
+    font-size: 12px;
+    font-weight: 600;
+    color: #16a34a;
+    margin-left: 6px;
+}
+
+.add-btn.out {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.stock-ribbon {
+    position: absolute;
+    top: 12px;
+    left: -35px;
+    background: #e11d48;
+    color: white;
+    padding: 6px 50px;
+    font-size: 11px;
+    font-weight: 700;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}

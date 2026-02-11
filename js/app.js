@@ -43,6 +43,7 @@ const products = [{
         id: 7,
         name: "men scarf",
         price: 80,
+        mrp: 100,
         cat: "Clothes",
         img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQBLqjar8MnUgAbKzRLufcq9v6AnMUEL1PEUpns9HJ_CKQ7YHlmG9QS326lWV4UoA_TPJAzv7imwHNY-pkxN_kOXPNXblbP90-vcLNzF9ioX_MlY7b703crBw"
     }, {
@@ -54,13 +55,17 @@ const products = [{
     }, {
         id: 9,
         name: "Comfort (860 ml)",
-        price: 235,
+        price: 230,
+        mrp: 235,
+        stock: 0,
         cat: "General",
         img: "https://m.media-amazon.com/images/I/61jY0St3PGL.jpg"
     }, {
         id: 10,
         name: "mens lower pant",
         price: 250,
+        mrp: 330,
+        stock: 5,
         cat: "Clothes",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
     }, {
@@ -79,6 +84,7 @@ const products = [{
         id: 13,
         name: "ENGAGE Perfume",
         price: 220,
+        mrp: 255,
         cat: "Perfumes",
         img: "images/engage.jpg"
     }, {
@@ -91,12 +97,14 @@ const products = [{
         id: 15,
         name: "Bellavita CEO men",
         price: 149,
+        mrp: 175,
         cat: "Perfumes",
         img: "images/ceomen.jpg"
     }, {
         id: 16,
         name: "Magnet Perfume",
         price: 240,
+        mrp: 255,
         cat: "Perfumes",
         img: "images/magnet1.jpg"
     }, {
@@ -157,18 +165,21 @@ const products = [{
         id: 26,
         name: "jannatul attar",
         price: 50,
+        mrp: 100,
         cat: "Perfumes",
         img: "images/jannatul.jpg.jpeg"
     }, {
         id: 27,
         name: "Shirlie attar",
         price: 50,
+        mrp: 100,
         cat: "Perfumes",
         img: "images/roll.jpg.jpeg"
     }, {
         id: 28,
         name: "men scarf",
         price: 70,
+        mrp: 100,
         cat: "Clothes",
         img: "images/muf.jpg"
     }, {
@@ -193,6 +204,7 @@ const products = [{
         id: 32,
         name: "Bandana mask",
         price: 20,
+        mrp: 40,
         cat: "Clothes",
         img: "images/bandana.jpg"
     }, {
@@ -251,6 +263,7 @@ const products = [{
         id: 40,
         name: "Saffron cream gold",
         price: 60,
+        mrp: 75,
         cat: "Cosmetics",
         img: "images/saffron2.jpg",
         createdAt: Date.now()
@@ -295,17 +308,55 @@ function renderProducts(list) {
       </div>
 
       <div class="vertical-list">
-        ${list.map(p => `
-          <div class="card">
-            <img src="${p.img}" onclick="openImg('${p.img}')" style="cursor:zoom-in;">
+        ${list.map(p => {
+
+          let priceHTML = "";
+          if (p.mrp && p.mrp > p.price) {
+            const discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
+            priceHTML = `
+              <div class="price-box">
+                <span class="selling-price">₹${p.price}</span>
+                <span class="mrp">₹${p.mrp}</span>
+                <span class="discount">${discount}% OFF</span>
+              </div>
+            `;
+          } else {
+            priceHTML = `
+              <div class="price-box">
+                <span class="selling-price">₹${p.price}</span>
+              </div>
+            `;
+          }
+
+          let buttonHTML = "";
+          if (p.stock === 0) {
+            buttonHTML = `
+              <button class="add-btn out" disabled>
+                Out of Stock
+              </button>
+            `;
+          } else {
+            buttonHTML = `
+              <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+            `;
+          }
+
+          return `
+  <div class="card" style="position:relative;">
+    
+    ${p.stock === 0 ? `<div class="stock-ribbon">OUT OF STOCK</div>` : ""}
+
+    <img src="${p.img}" onclick="openImg('${p.img}')" style="cursor:zoom-in;">
+
 
             <div class="card-title">${p.name}</div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <div class="price">₹${p.price}</div>
-              <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+              ${priceHTML}
+              ${buttonHTML}
             </div>
           </div>
-        `).join("")}
+          `;
+        }).join("")}
       </div>
     </div>
   `;
