@@ -337,7 +337,11 @@ function renderProducts(list) {
             `;
           } else {
             buttonHTML = `
-              <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+              <button class="add-btn" 
+  onclick="flyToCart(this.closest('.card').querySelector('img')); addToCart(${p.id})">
+  +
+</button>
+
             `;
           }
 
@@ -361,6 +365,40 @@ function renderProducts(list) {
     </div>
   `;
 }
+function flyToCart(imgElement) {
+  const cart = document.getElementById("miniCartBtn");
+
+  const imgRect = imgElement.getBoundingClientRect();
+  const cartRect = cart.getBoundingClientRect();
+
+  const clone = imgElement.cloneNode(true);
+  clone.style.position = "fixed";
+  clone.style.top = imgRect.top + "px";
+  clone.style.left = imgRect.left + "px";
+  clone.style.width = imgRect.width + "px";
+  clone.style.height = imgRect.height + "px";
+  clone.style.transition = "all 0.8s ease-in-out";
+  clone.style.zIndex = "9999";
+  clone.style.borderRadius = "12px";
+
+  document.body.appendChild(clone);
+
+  setTimeout(() => {
+    clone.style.top = cartRect.top + "px";
+    clone.style.left = cartRect.left + "px";
+    clone.style.width = "20px";
+    clone.style.height = "20px";
+    clone.style.opacity = "0.5";
+  }, 50);
+
+  setTimeout(() => {
+  cart.classList.add("bump");   // 👈 YE LINE ADD
+  setTimeout(() => cart.classList.remove("bump"), 200);  // 👈 YE LINE ADD
+  clone.remove();
+}, 850);
+
+}
+
 
 
         function addToCart(id) {
