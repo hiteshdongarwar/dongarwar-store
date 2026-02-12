@@ -70,10 +70,15 @@ const products = [{
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
     }, {
         id: 11,
-        name: "Ponds Powder (100gm)",
+        name: "Ponds Powder",
         price: 125,
         cat: "Cosmetics",
-        img: "images/ponds.jpg"
+        img: "images/ponds.jpg",
+        sizes: [
+            { label: "100gm", price: 125 },
+            { label: "23 gm", price: 10 }
+        ]
+
     }, {
         id: 12,
         name: "Garnier Cream",
@@ -315,7 +320,8 @@ function renderProducts(list) {
             const discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
             priceHTML = `
               <div class="price-box">
-                <span class="selling-price">₹${p.price}</span>
+                <span class="selling-price" id="price-${p.id}">₹${p.price}</span>
+
                 <span class="mrp">₹${p.mrp}</span>
                 <span class="discount">${discount}% OFF</span>
               </div>
@@ -323,7 +329,8 @@ function renderProducts(list) {
           } else {
             priceHTML = `
               <div class="price-box">
-                <span class="selling-price">₹${p.price}</span>
+                <span class="selling-price" id="price-${p.id}">₹${p.price}</span>
+
               </div>
             `;
           }
@@ -354,6 +361,14 @@ function renderProducts(list) {
 
 
             <div class="card-title">${p.name}</div>
+            ${p.sizes ? `
+<select onchange="changeSize(${p.id}, this.value)">
+  ${p.sizes.map((s,i)=>`
+    <option value="${i}">${s.label}</option>
+  `).join("")}
+</select>
+` : ""}
+
             <div style="display:flex; justify-content:space-between; align-items:center;">
               ${priceHTML}
               ${buttonHTML}
@@ -401,17 +416,37 @@ function flyToCart(imgElement) {
 
 
 
-        function addToCart(id) {
+       function addToCart(id) {
   const product = products.find(p => p.id === id);
   if (product.stock === 0) return;
 
-  const item = cart.find(i => i.id === id);
-  if (item) item.qty++;
-  else cart.push({ ...product, qty: 1 });
+  const finalPrice = product.selectedPrice || product.price;
+  const finalSize = product.selectedSize || null;
+
+  const item = cart.find(i =>
+    i.id === id &&
+    i.price === finalPrice &&
+    i.size === finalSize
+  );
+
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      img: product.img,
+      price: finalPrice,
+      mrp: product.mrp,
+      size: finalSize,   // 👈 size save ho raha hai
+      qty: 1
+    });
+  }
 
   updateCartUI();
   showToast("Added to cart!");
 }
+
 
 
         function updateCartUI() {
@@ -428,7 +463,7 @@ function flyToCart(imgElement) {
         subtotal += i.price * i.qty;
         return `
         <div class="cart-item">
-            <div><b>${i.name}</b><br>₹${i.price}</div>
+            <div><b>${i.name} ${i.size ? `(${i.size})` : ""}</div>
             <div class="qty-ctrl">
                 <span onclick="changeQty(${i.id}, -1)">−</span>
                 ${i.qty}
@@ -602,4 +637,14 @@ function closeImg() {
   if (e.target.id === "imgModal") closeImg();
 };
 
+}
+function changeSize(productId, index) {
+  const product = products.find(p => p.id === productId);
+  const size = product.sizes[index];
+
+  document.getElementById(`price-${productId}`).innerText =
+    "₹" + size.price;
+
+  product.selectedPrice = size.price;
+  product.selectedSize = size.label;   // 👈 ye add karo
 }
