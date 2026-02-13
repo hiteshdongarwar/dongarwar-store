@@ -48,186 +48,197 @@ const products = [{
         img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQBLqjar8MnUgAbKzRLufcq9v6AnMUEL1PEUpns9HJ_CKQ7YHlmG9QS326lWV4UoA_TPJAzv7imwHNY-pkxN_kOXPNXblbP90-vcLNzF9ioX_MlY7b703crBw"
     }, {
         id: 8,
-        name: "Comfort (210 ml)",
+        name: "Comfort",
         price: 58,
         cat: "General",
-        img: "https://quickeselling.blob.core.windows.net/qesliveimages/uploads/10143/products/1589889283_comfort_after_wash_morning_fresh_fabric_conditioner_220_ml.jpg"
-    }, {
-        id: 9,
-        name: "Comfort (860 ml)",
-        price: 230,
-        mrp: 235,
-        stock: 0,
-        cat: "General",
-        img: "https://m.media-amazon.com/images/I/61jY0St3PGL.jpg"
-    }, {
-        id: 10,
-        name: "mens lower pant",
-        price: 250,
-        mrp: 330,
-        stock: 5,
-        cat: "Clothes",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
-    }, {
-        id: 11,
-        name: "Ponds Powder",
-        price: 125,
-        cat: "Cosmetics",
-        img: "images/ponds.jpg",
+        img: "images/comfort58.jpg",
         sizes: [
-            { label: "100gm", price: 125 },
-            { label: "23 gm", price: 10 }
+            { label: "210ml", price: 58, img: "images/comfort58.jpg", stock: 3 },
+            { label: "860ml", price: 230, img: "images/comfort230.jpg", stock: 0 }
         ]
 
     }, {
-        id: 12,
+        id: 9,
+        name: "mens lower pant",
+        price: 250,
+        mrp: 330,
+        cat: "Clothes",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAHvGdkq86_CW4hFBBLHjOWed0tMv-fgUPA&s"
+    }, {
+        id: 10,
+        name: "Ponds Powder",
+        price: 260,
+        cat: "Cosmetics",
+        img: "images/ponds.jpg",
+        sizes: [
+            { label: "250gm", price: 260, img: "images/ponds.jpg" },
+            { label: "100gm", price: 125, img: "images/ponds.jpg" },
+            { label: "50gm", price: 65, img: "images/ponds.jpg" },
+            { label: "19 gm", price: 10, img: "images/ponds10.jpg" }
+        ]
+
+    }, {
+        id: 11,
         name: "Garnier Cream",
         price: 109,
         cat: "Cosmetics",
-        img: "images/vitaminc.jpg"
+        img: "images/vitaminc.jpg",
+        sizes: [
+            { label: "23gm", price: 109, img: "images/vitaminc.jpg" },
+            { label: "45gm", price: 249, img: "images/vitaminc.jpg" }
+        ],
+        selectedIndex: 0,
     }, {
-        id: 13,
+        id: 12,
         name: "ENGAGE Perfume",
         price: 220,
         mrp: 255,
         cat: "Perfumes",
         img: "images/engage.jpg"
     }, {
-        id: 14,
+        id: 13,
         name: "DENVER",
         price: 230,
         cat: "Perfumes",
         img: "images/denver.jpg"
     }, {
-        id: 15,
+        id: 14,
         name: "Bellavita CEO men",
         price: 149,
         mrp: 175,
         cat: "Perfumes",
         img: "images/ceomen.jpg"
     }, {
-        id: 16,
+        id: 15,
         name: "Magnet Perfume",
         price: 240,
         mrp: 255,
         cat: "Perfumes",
         img: "images/magnet1.jpg"
     }, {
-        id: 17,
+        id: 16,
         name: "sandal attar",
         price: 50,
         cat: "Perfumes",
         img: "images/sandal.jpg.jpeg"
     }, {
-        id: 18,
+        id: 17,
         name: "Parachute Coconut oil",
         price: 65,
         cat: "Hair oils",
-        img: "images/parachute.jpg"
+        img: "images/parachute.jpg",
+        sizes: [
+            { label: "100ml", price: 65, img: "images/parachute.jpg" },
+            { label: "20ml", price: 10, img: "images/parachute10.jpg" }
+        ]
     }, {
-        id: 19,
+        id: 18,
         name: "Shanti aavla",
         price: 20,
         cat: "Hair oils",
         img: "images/shanti.jpg"
     }, {
-        id: 20,
+        id: 19,
         name: "Vasmol oil",
         price: 35,
         cat: "Hair oils",
         img: "images/vasmol.jpg"
     }, {
-        id: 21,
+        id: 20,
         name: "kesh king (50ml)",
         price: 99,
         cat: "Hair oils",
         img: "images/keshking.jpg"
     }, {
-        id: 22,
+        id: 21,
         name: "Glow & Lovely (50g)",
         price: 135,
         cat: "Cosmetics",
         img: "images/glow.jpg"
     }, {
-        id: 23,
+        id: 22,
         name: "Khushbu oil (100ml)",
         price: 60,
         cat: "Hair oils",
         img: "images/khushbu.jpg"
     }, {
-        id: 24,
+        id: 23,
         name: "Bajaj almond drops (50ml)",
         price: 41,
         cat: "Hair oils",
         img: "images/almond.jpg"
     }, {
-        id: 25,
+        id: 24,
         name: "Ponds sandal Powder",
         price: 75,
         cat: "Cosmetics",
         img: "images/sandal2.jpg"
     }, {
-        id: 26,
+        id: 25,
         name: "jannatul attar",
         price: 50,
         mrp: 100,
         cat: "Perfumes",
         img: "images/jannatul.jpg.jpeg"
     }, {
-        id: 27,
+        id: 26,
         name: "Shirlie attar",
         price: 50,
         mrp: 100,
         cat: "Perfumes",
         img: "images/roll.jpg.jpeg"
     }, {
-        id: 28,
+        id: 27,
         name: "men scarf",
         price: 70,
         mrp: 100,
         cat: "Clothes",
         img: "images/muf.jpg"
     }, {
-        id: 29,
+        id: 28,
         name: "Everyouth Scrub",
         price: 15,
         cat: "Cosmetics",
         img: "images/ginger.jpg"
     }, {
-        id: 30,
+        id: 29,
         name: "Everyouth Golden mask",
         price: 15,
         cat: "Cosmetics",
         img: "images/golden.jpg"
     }, {
-        id: 31,
+        id: 30,
         name: "Everyouth Tan Removal",
         price: 20,
         cat: "Cosmetics",
         img: "images/cherry.jpg"
     }, {
-        id: 32,
+        id: 31,
         name: "Bandana mask",
         price: 20,
         mrp: 40,
         cat: "Clothes",
         img: "images/bandana.jpg"
     }, {
-        id: 33,
+        id: 32,
         name: "Himalaya Lipbalm",
         price: 20,
         cat: "Cosmetics",
         img: "images/lip.jpg"
     }, {
-        id: 34,
-        name: "Saffron cream brown",
+        id: 33,
+        name: "Saffron cream",
         price: 60,
         cat: "Cosmetics",
         img: "images/saffron.jpg",
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        sizes: [
+            { label: "Brown", price: 60, img: "images/saffron.jpg" },
+            { label: "Gold", price: 60, img: "images/saffron2.jpg" }
+        ]
 
     }, {
-        id: 35,
+        id: 34,
         name: "Whitetone Cream",
         price: 48,
         cat: "Cosmetics",
@@ -235,7 +246,7 @@ const products = [{
         createdAt: Date.now()
 
     }, {
-        id: 36,
+        id: 35,
         name: "Whitetone Powder",
         price: 65,
         cat: "Cosmetics",
@@ -243,7 +254,7 @@ const products = [{
         createdAt: Date.now()
 
     }, {
-        id: 37,
+        id: 36,
         name: "Himalaya Baby Lotion (100ml)",
         price: 115,
         cat: "Cosmetics",
@@ -251,30 +262,20 @@ const products = [{
         createdAt: Date.now()
 
     }, {
-        id: 38,
+        id: 37,
         name: "Himalaya Baby Powder (50gm)",
         price: 60,
         cat: "Cosmetics",
         img: "images/himalayapowder.jpg",
         createdAt: Date.now()
     }, {
-        id: 39,
+        id: 38,
         name: "Himalaya Baby massage oil (50ml)",
         price: 75,
         cat: "Cosmetics",
         img: "images/himalayaoil.jpg",
         createdAt: Date.now()
-    }, {
-        id: 40,
-        name: "Saffron cream gold",
-        price: 60,
-        mrp: 75,
-        cat: "Cosmetics",
-        img: "images/saffron2.jpg",
-        createdAt: Date.now()
     },
-
-
 
 ];
 products.forEach((p, index) => {
@@ -315,6 +316,9 @@ function renderProducts(list) {
       <div class="vertical-list">
         ${list.map(p => {
 
+            p.selectedIndex = 0;
+            
+
           let priceHTML = "";
           if (p.mrp && p.mrp > p.price) {
             const discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
@@ -335,8 +339,10 @@ function renderProducts(list) {
             `;
           }
 
+          let defaultStock = p.sizes ? p.sizes[0].stock : p.stock;
+
           let buttonHTML = "";
-          if (p.stock === 0) {
+          if (defaultStock === 0) {
             buttonHTML = `
               <button class="add-btn out" disabled>
                 Out of Stock
@@ -345,9 +351,11 @@ function renderProducts(list) {
           } else {
             buttonHTML = `
               <button class="add-btn" 
+  id="btn-${p.id}"
   onclick="flyToCart(this.closest('.card').querySelector('img')); addToCart(${p.id})">
   +
 </button>
+
 
             `;
           }
@@ -355,19 +363,30 @@ function renderProducts(list) {
           return `
   <div class="card" style="position:relative;">
     
-    ${p.stock === 0 ? `<div class="stock-ribbon">OUT OF STOCK</div>` : ""}
+    ${p.sizes && p.sizes[0].stock === 0 
+  ? `<div class="stock-ribbon">OUT OF STOCK</div>` 
+  : ""}
 
-    <img src="${p.img}" onclick="openImg('${p.img}')" style="cursor:zoom-in;">
+
+    <img id="img-${p.id}" 
+     src="${p.img}" 
+     onclick="openImg(this.src)">
+
 
 
             <div class="card-title">${p.name}</div>
             ${p.sizes ? `
-<select onchange="changeSize(${p.id}, this.value)">
+<div class="variant-group">
   ${p.sizes.map((s,i)=>`
-    <option value="${i}">${s.label}</option>
+    <button 
+      class="variant-btn ${i===0 ? 'active' : ''}" 
+      onclick="changeSize(${p.id}, ${i}, this)">
+      ${s.label}
+    </button>
   `).join("")}
-</select>
+</div>
 ` : ""}
+
 
             <div style="display:flex; justify-content:space-between; align-items:center;">
               ${priceHTML}
@@ -416,37 +435,45 @@ function flyToCart(imgElement) {
 
 
 
-       function addToCart(id) {
+      function addToCart(id) {
+
   const product = products.find(p => p.id === id);
-  if (product.stock === 0) return;
 
-  const finalPrice = product.selectedPrice || product.price;
-  const finalSize = product.selectedSize || null;
+  // 🔹 Agar product me sizes hain
+  let selectedSize = null;
 
-  const item = cart.find(i =>
-    i.id === id &&
-    i.price === finalPrice &&
-    i.size === finalSize
+  if (product.sizes && product.sizes.length > 0) {
+    selectedSize = product.sizes[product.selectedIndex];
+  }
+
+  // 🔹 Final values decide karo
+  const finalPrice = selectedSize ? selectedSize.price : product.price;
+  const finalImg   = selectedSize ? selectedSize.img   : product.img;
+  const finalSize  = selectedSize ? selectedSize.label : null;
+
+  // 🔹 Check agar same variant already cart me hai
+  const existingItem = cart.find(item =>
+    item.id === product.id &&
+    item.size === finalSize
   );
 
-  if (item) {
-    item.qty++;
+  if (existingItem) {
+    existingItem.qty++;
   } else {
     cart.push({
       id: product.id,
       name: product.name,
-      img: product.img,
       price: finalPrice,
-      mrp: product.mrp,
-      size: finalSize,   // 👈 size save ho raha hai
+      img: finalImg,
+      size: finalSize,
       qty: 1
     });
   }
 
   updateCartUI();
+  renderCart();
   showToast("Added to cart!");
 }
-
 
 
         function updateCartUI() {
@@ -638,13 +665,36 @@ function closeImg() {
 };
 
 }
-function changeSize(productId, index) {
+function changeSize(productId, index, btn) {
   const product = products.find(p => p.id === productId);
+
+  product.selectedIndex = index;
   const size = product.sizes[index];
 
+  // Price update
   document.getElementById(`price-${productId}`).innerText =
     "₹" + size.price;
 
-  product.selectedPrice = size.price;
-  product.selectedSize = size.label;   // 👈 ye add karo
+  // Image update
+  document.getElementById(`img-${productId}`).src =
+    size.img;
+
+  // Active button fix
+  const group = btn.closest(".variant-group");
+  group.querySelectorAll(".variant-btn").forEach(b =>
+    b.classList.remove("active")
+  );
+  btn.classList.add("active");
+
+
+  // ✅ STOCK LOGIC
+  const addBtn = document.getElementById(`btn-${productId}`);
+
+  if (size.stock === 0) {
+    addBtn.disabled = true;
+    addBtn.innerText = "Out";
+  } else {
+    addBtn.disabled = false;
+    addBtn.innerText = "+";
+  }
 }

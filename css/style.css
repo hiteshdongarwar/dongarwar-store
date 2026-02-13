@@ -710,3 +710,30 @@ body {
 .fab-cart.bump {
     transform: scale(1.2);
 }
+
+.variant-group {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0;
+    flex-wrap: wrap;
+}
+
+.variant-btn {
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.variant-btn:hover {
+    border-color: #111;
+}
+
+.variant-btn.active {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
