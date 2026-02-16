@@ -100,7 +100,8 @@ const products = [{
         name: "DENVER",
         price: 230,
         cat: "Perfumes",
-        img: "images/denver.jpg"
+        img: "images/denver.jpg",
+        stock: 0
     }, {
         id: 14,
         name: "Bellavita CEO men",
