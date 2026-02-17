@@ -276,6 +276,54 @@ const products = [{
         cat: "Cosmetics",
         img: "images/himalayaoil.jpg",
         createdAt: Date.now()
+    }, {
+        id: 39,
+        name: "Necklace-1",
+        price: 200,
+        mrp: 270,
+        cat: "Beauty",
+        img: "images/necklace1.jpg.jpeg",
+        createdAt: Date.now()
+    }, {
+        id: 40,
+        name: "Necklace-2",
+        price: 150,
+        mrp: 230,
+        cat: "Beauty",
+        img: "images/necklace2.jpg.jpeg",
+        createdAt: Date.now()
+    }, {
+        id: 41,
+        name: "Necklace-3",
+        price: 150,
+        mrp: 230,
+        cat: "Beauty",
+        img: "images/necklace3.jpg.jpeg",
+        createdAt: Date.now()
+    }, {
+        id: 42,
+        name: "Necklace-4",
+        price: 190,
+        mrp: 260,
+        cat: "Beauty",
+        img: "images/necklace4.jpg.jpeg",
+        createdAt: Date.now()
+    }, {
+        id: 43,
+        name: "Necklace-5",
+        price: 220,
+        mrp: 300,
+        cat: "Beauty",
+        img: "images/necklace5.jpg.jpeg",
+        createdAt: Date.now()
+    }, {
+        id: 44,
+        name: "Necklace-6",
+        price: 150,
+        mrp: 230,
+        cat: "Beauty",
+        img: "images/necklace6.jpg.jpeg",
+        createdAt: Date.now()
     },
 
 ];
