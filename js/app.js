@@ -343,7 +343,12 @@ function getSortedProducts(list) {
 }
 
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 
 function renderCategories() {
     const cats = ["All", ...new Set(products.map(p => p.cat))];
@@ -519,6 +524,7 @@ function flyToCart(imgElement) {
     });
   }
 
+ saveCart();
   updateCartUI();
   renderCart();
   showToast("Added to cart!");
@@ -563,6 +569,7 @@ function flyToCart(imgElement) {
             const item = cart.find(i => i.id === id);
             item.qty += n;
             if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            saveCart();
             updateCartUI();
             renderCart();
             if (cart.length === 0) closeModals();
@@ -603,9 +610,20 @@ let subtotal = 0;
 
 cart.forEach(i => {
   const itemTotal = i.price * i.qty;
-  orderList += `• ${i.name} (x${i.qty}) - ₹${itemTotal}%0A`;
+
+  let line = `• ${i.name}`;
+
+  if (i.size) {
+    line += ` (${i.size})`;
+  }
+
+  line += ` (x${i.qty}) - ₹${itemTotal}%0A`;
+
+  orderList += line;
+
   subtotal += itemTotal;
 });
+
 
 let delivery = subtotal >= FREE_DELIVERY_LIMIT ? 0 : DELIVERY_CHARGE;
 let grandTotal = subtotal + delivery;
@@ -747,3 +765,5 @@ function changeSize(productId, index, btn) {
     addBtn.innerText = "+";
   }
 }
+updateCartUI();
+renderCart();
