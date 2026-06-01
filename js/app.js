@@ -108,20 +108,23 @@ const products = [{
         price: 149,
         mrp: 175,
         cat: "Perfumes",
-        img: "images/ceomen.jpg"
+        img: "images/ceomen.jpg",
+        stock: 0
     }, {
         id: 15,
         name: "Magnet Perfume",
         price: 240,
         mrp: 255,
         cat: "Perfumes",
-        img: "images/magnet1.jpg"
+        img: "images/magnet1.jpg",
+        stock: 0
     }, {
         id: 16,
         name: "sandal attar",
         price: 50,
         cat: "Perfumes",
-        img: "images/sandal.jpg.jpeg"
+        img: "images/sandal.jpg.jpeg",
+        stock: 0
     }, {
         id: 17,
         name: "Parachute Coconut oil",
@@ -324,21 +327,28 @@ const products = [{
         cat: "Beauty",
         img: "images/necklace6.jpg.jpeg",
         createdAt: Date.now()
+    }, {
+        id: 45,
+        name: "Mamaearth Rice facewash",
+        price: 125,
+        cat: "Cosmetics",
+        img: "images/mamaearth-rice.webp",
+        createdAt: Date.now()
     },
 
 ];
 products.forEach((p, index) => {
     if (!p.createdAt) {
-        p.createdAt = 1; // sab purane products ko same old time
+        p.createdAt = 1;
     }
 });
 
 function getSortedProducts(list) {
     return [...list].sort((a, b) => {
         if (b.createdAt !== a.createdAt) {
-            return b.createdAt - a.createdAt; // NEWEST FIRST
+            return b.createdAt - a.createdAt;
         }
-        return b.id - a.id; // fallback (extra safety)
+        return b.id - a.id;
     });
 }
 
@@ -493,19 +503,19 @@ function flyToCart(imgElement) {
 
   const product = products.find(p => p.id === id);
 
-  // 🔹 Agar product me sizes hain
+
   let selectedSize = null;
 
   if (product.sizes && product.sizes.length > 0) {
     selectedSize = product.sizes[product.selectedIndex];
   }
 
-  // 🔹 Final values decide karo
+ 
   const finalPrice = selectedSize ? selectedSize.price : product.price;
   const finalImg   = selectedSize ? selectedSize.img   : product.img;
   const finalSize  = selectedSize ? selectedSize.label : null;
 
-  // 🔹 Check agar same variant already cart me hai
+
   const existingItem = cart.find(item =>
     item.id === product.id &&
     item.size === finalSize
@@ -560,7 +570,7 @@ function flyToCart(imgElement) {
     document.getElementById("total").innerText =
         "₹" + grandTotal + (delivery ? " (₹10 delivery)" : "");
 
-    // 👇 Free delivery bar update
+  
     updateFreeDelivery(subtotal);
 }
 
@@ -575,7 +585,7 @@ function flyToCart(imgElement) {
             if (cart.length === 0) closeModals();
         }
 
-        // --- NAVIGATION & MODALS ---
+       
         const cartModal = document.getElementById("cartModalBg");
         const formModal = document.getElementById("formModalBg");
 
@@ -672,7 +682,6 @@ renderProducts(getSortedProducts(filtered));
 
         }
 
-        // --- AI & UTILS ---
        
 
         function showToast(msg) {
@@ -682,7 +691,7 @@ renderProducts(getSortedProducts(filtered));
             setTimeout(() => t.classList.remove("show"), 2000);
         }
 
-        // Init
+       
         renderCategories();
         renderProducts(getSortedProducts(products));
 
@@ -709,7 +718,7 @@ function updateFreeDelivery(subtotal) {
             `₹${FREE_DELIVERY_LIMIT - subtotal} aur add karo aur ₹${DELIVERY_CHARGE} delivery bachaao 🚚`;
     }
 }
-    // INSTANT SPLASH REMOVE (NO WAIT)
+   
 document.addEventListener("DOMContentLoaded", () => {
   const splash = document.getElementById("splash");
   if (splash) {
@@ -717,7 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
       splash.style.opacity = "0";
       splash.style.transition = "opacity 0.12s linear";
       setTimeout(() => splash.remove(), 300);
-    }, 500); // sirf 150ms
+    }, 500);
   }
 });
     function openImg(src) {
@@ -738,15 +747,12 @@ function changeSize(productId, index, btn) {
   product.selectedIndex = index;
   const size = product.sizes[index];
 
-  // Price update
   document.getElementById(`price-${productId}`).innerText =
     "₹" + size.price;
 
-  // Image update
   document.getElementById(`img-${productId}`).src =
     size.img;
 
-  // Active button fix
   const group = btn.closest(".variant-group");
   group.querySelectorAll(".variant-btn").forEach(b =>
     b.classList.remove("active")
@@ -754,7 +760,6 @@ function changeSize(productId, index, btn) {
   btn.classList.add("active");
 
 
-  // ✅ STOCK LOGIC
   const addBtn = document.getElementById(`btn-${productId}`);
 
   if (size.stock === 0) {
