@@ -37,8 +37,8 @@
         <!-- HERO BANNER START -->
         <div class="hero-banner">
             <div class="hero-overlay">
-                <h2>❤️</h2>
-                <p>Cosmetics & General Store</p>
+                <h2>❤️DONGARWAR STORE</h2>
+                <p>Cosmetics • Beauty • Daily Essentials</p>
             </div>
         </div>
         <!-- HERO BANNER END -->
@@ -149,6 +149,51 @@
 
     <script src="js/app.js"></script>
 
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+
+            <span class="close-product" onclick="closeProductModal()">✕</span>
+
+            <img id="modalImg" class="modal-product-img">
+
+            <h2 id="modalName"></h2>
+
+            <div class="modal-price">
+                <span id="modalPrice"></span>
+                <span id="modalMrp"></span>
+            </div>
+
+            <button id="modalAddBtn" class="modal-add-btn">
+      Add To Cart
+    </button>
+
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+
+        <div class="nav-item active-nav" onclick="scrollToTop()">
+            <div>🏠</div>
+            <span>Home</span>
+        </div>
+
+        <div class="nav-item" onclick="focusSearch()">
+            <div>🔍</div>
+            <span>Search</span>
+        </div>
+
+        <div class="nav-item" onclick="openCartNav()">
+            <div>🛒</div>
+            <span>Cart</span>
+        </div>
+
+        <div class="nav-item" onclick="showOffers()">
+            <div>🎁</div>
+            <span>Offers</span>
+        </div>
+
+    </div>
 </body>
 
 </html>

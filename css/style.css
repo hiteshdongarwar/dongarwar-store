@@ -19,7 +19,7 @@
 body {
     background: var(--gray);
     color: var(--dark);
-    padding-bottom: 120px;
+    padding-bottom: 80px;
     overflow-x: hidden;
 }
 
@@ -151,7 +151,11 @@ body {
 /* --- SEARCH & CHIPS --- */
 
 .search-wrapper {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    padding: 10px 0;
     margin-bottom: 15px;
 }
 
@@ -192,8 +196,8 @@ body {
 }
 
 .chip {
-    padding: 10px 20px;
-    border-radius: 40px;
+    padding: 10px 18px;
+    border-radius: 999px;
     background: white;
     border: 1px solid #eee;
     font-size: 13px;
@@ -205,7 +209,7 @@ body {
 }
 
 .chip.active {
-    background: var(--dark);
+    background: #111827;
     color: white;
     border-color: var(--dark);
 }
@@ -268,26 +272,23 @@ body {
 .card {
     min-width: 210px;
     background: white;
-    border-radius: 24px;
-    padding: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    transition: 0.2s;
-}
-
-.card {
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     transition: 0.25s;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
     width: 100%;
+    aspect-ratio: 1/1;
     height: 130px;
     object-fit: cover;
-    border-radius: 18px;
+    border-radius: 14px;
 }
 
 .card-title {
@@ -378,6 +379,8 @@ body {
     flex-direction: column;
     transform: translateY(100%);
     transition: 0.3s;
+    padding-bottom: 90px;
+    overflow-y: auto;
 }
 
 .modal-overlay.show .modal-card {
@@ -545,8 +548,8 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(3px);
-    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, .15);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -601,7 +604,7 @@ body {
 /* Modal smooth */
 
 .modal-card {
-    border-radius: 22px;
+    border-radius: 25px 25px 0 0;
     animation: pop 0.3s ease;
 }
 
@@ -725,4 +728,134 @@ body {
     background: #111;
     color: white;
     border-color: #111;
+}
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.product-modal.show {
+    display: flex;
+}
+
+.product-modal-content {
+    width: 90%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    animation: popup .25s ease;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-product-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+#modalName {
+    margin-top: 12px;
+    font-size: 20px;
+}
+
+.modal-price {
+    margin-top: 10px;
+}
+
+#modalPrice {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#modalMrp {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 8px;
+}
+
+.modal-add-btn {
+    width: 100%;
+    margin-top: 16px;
+    border: none;
+    background: #111827;
+    color: #fff;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-product {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, .08);
+    z-index: 999;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    color: #777;
+}
+
+.nav-item div {
+    font-size: 22px;
+}
+
+.active-nav {
+    color: #111827;
+    font-weight: 600;
+}
+
+#cartCount {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

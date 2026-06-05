@@ -772,3 +772,53 @@ function changeSize(productId, index, btn) {
 }
 updateCartUI();
 renderCart();
+
+function openProductModal(id){
+
+  const p = products.find(x => x.id === id);
+
+  document.getElementById("modalImg").src = p.img;
+  document.getElementById("modalName").innerText = p.name;
+  document.getElementById("modalPrice").innerText = "₹" + p.price;
+
+  document.getElementById("modalMrp").innerText =
+    p.mrp ? "₹" + p.mrp : "";
+
+  document.getElementById("modalAddBtn").onclick = () => {
+    addToCart(id);
+    closeProductModal();
+  };
+
+  document.getElementById("productModal")
+    .classList.add("show");
+}
+
+function closeProductModal(){
+  document.getElementById("productModal")
+    .classList.remove("show");
+}
+
+function scrollToTop(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function focusSearch(){
+  document
+    .getElementById("searchInput")
+    .focus();
+}
+
+function openCartNav(){
+  document
+    .getElementById("cartModalBg")
+    .classList.add("show");
+
+  renderCart();
+}
+
+function showOffers(){
+  alert("🎉 Free Delivery Above ₹99");
+}
