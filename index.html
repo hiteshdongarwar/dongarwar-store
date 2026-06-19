@@ -3,197 +3,210 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DONGARWAR • Cosmetic & General Store App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <meta name="description" content="Dongarwar Cosmetic and General Store - shop cosmetics, perfumes, hair oils, clothes, beauty items, and daily essentials." />
+    <title>Dongarwar Store | Cosmetic & General Store</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <div id="splash">
-        <div class="splash-text">DONGARWAR</div>
+    <div id="splash" aria-hidden="true">
+        <div class="splash-mark">DS</div>
+        <div class="splash-text">Dongarwar Store</div>
     </div>
 
-    <div class="header">
-        <div class="logo">DON<span>GARWAR</span></div>
-        <a href="https://wa.me/919322144882" target="_blank" style="color:var(--dark); font-size:26px;"><i class='bx bxl-whatsapp'></i></a>
-    </div>
-
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <span>⚡ DONGARWAR = fast • local • savage 😈🔥</span>
-            <span>⚡ DONGARWAR STORE</span>
-            <span>⚡ COSMETIC AND GENERAL STORE SOUNDAD❤️</span>
+    <header class="header">
+        <button class="icon-btn menu-btn" type="button" aria-label="Go to top" onclick="scrollToTop()">
+            <i class='bx bx-store'></i>
+        </button>
+        <div class="brand">
+            <div class="logo">Dongarwar</div>
+            <span>Cosmetic & General Store</span>
         </div>
-    </div>
+        <a class="icon-btn whatsapp-btn" href="https://wa.me/919322144882" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
+            <i class='bx bxl-whatsapp'></i>
+        </a>
+    </header>
 
-    <div class="container">
-        <!-- HERO BANNER START -->
-        <div class="hero-banner">
-            <div class="hero-overlay">
-                <h2>❤️DONGARWAR STORE</h2>
-                <p>Cosmetics • Beauty • Daily Essentials</p>
+    <main class="container">
+        <section class="hero-banner">
+            <div class="hero-content">
+                <span class="eyebrow">Soundad local store</span>
+                <h1>Dongarwar Store</h1>
+                <p>Cosmetics, perfumes, hair oils, beauty items, clothes, and daily essentials delivered with COD.</p>
+                <div class="hero-actions">
+                    <button class="primary-action" type="button" onclick="focusSearch()">
+                        <i class='bx bx-search'></i>
+                        Shop Products
+                    </button>
+                    <button class="secondary-action" type="button" onclick="showOffers()">
+                        <i class='bx bx-purchase-tag'></i>
+                        Offers
+                    </button>
+                </div>
             </div>
-        </div>
-        <!-- HERO BANNER END -->
+        </section>
 
-        <div class="search-wrapper">
-            <i class='bx bx-search search-icon'></i>
-            <input class="search-box" id="searchInput" placeholder="Search products...">
-        </div>
+        <section class="store-strip" aria-label="Store benefits">
+            <div>
+                <i class='bx bx-package'></i>
+                <span>COD available</span>
+            </div>
+            <div>
+                <i class='bx bx-cycling'></i>
+                <span>Free delivery above Rs. 99</span>
+            </div>
+            <div>
+                <i class='bx bx-check-shield'></i>
+                <span>Local trusted store</span>
+            </div>
+        </section>
 
-        <div class="category-sticky">
-            <div class="chips" id="categoryChips"></div>
-        </div>
+        <section class="toolbar" aria-label="Search and filters">
+            <div class="search-wrapper">
+                <i class='bx bx-search search-icon'></i>
+                <input class="search-box" id="searchInput" type="search" placeholder="Search products, brands, categories..." autocomplete="off">
+                <button class="clear-search" id="clearSearchBtn" type="button" aria-label="Clear search">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            <div class="filter-row">
+                <div class="chips" id="categoryChips" aria-label="Product categories"></div>
+                <label class="sort-control" for="sortSelect">
+                    <i class='bx bx-sort-alt-2'></i>
+                    <select id="sortSelect" aria-label="Sort products">
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low</option>
+                        <option value="price-high">Price: High</option>
+                        <option value="name">Name</option>
+                    </select>
+                </label>
+            </div>
+        </section>
+
+        <section class="section-head">
+            <div>
+                <span class="eyebrow dark">Available now</span>
+                <h2>Products</h2>
+            </div>
+            <span id="productCount" class="product-count"></span>
+        </section>
 
         <div id="storesWrap"></div>
-    </div>
+    </main>
 
-    <div class="fab-cart" id="miniCartBtn">
+    <button class="fab-cart" id="miniCartBtn" type="button" aria-label="Open cart">
         <i class='bx bxs-shopping-bag'></i>
         <span id="cartCount">0</span>
-    </div>
+    </button>
 
-    <button class="fab-ai" id="aiBtn"><i class='bx bx-bot'></i></button>
-
-    <div class="modal-overlay" id="cartModalBg">
+    <div class="modal-overlay" id="cartModalBg" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
         <div class="modal-card">
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <h2 style="font-weight:800;">Your Cart 🛒</h2>
-                <i class='bx bx-x' style="font-size:28px; cursor:pointer;" id="closeCartBtn"></i>
+            <div class="modal-header">
+                <div>
+                    <span class="eyebrow dark">Your order</span>
+                    <h2 id="cartTitle">Cart</h2>
+                </div>
+                <button class="icon-btn close-btn" id="closeCartBtn" type="button" aria-label="Close cart">
+                    <i class='bx bx-x'></i>
+                </button>
             </div>
             <div class="cart-list" id="cartItems"></div>
-            <div class="cod-badge">
-                💵 Cash on Delivery Available
-            </div>
-
-            <div class="bill-box" id="freeDeliveryBox">
-                <div style="font-weight:700; margin-bottom:8px;" id="freeText">
-                    ₹499 aur add karo for FREE DELIVERY 🚚
-                </div>
-                <div style="background:#eaeaea; border-radius:20px; overflow:hidden; height:10px;">
-                    <div id="freeBar" style="
-      height:100%;
-      width:0%;
-      background:linear-gradient(90deg,#2ed573,#1dd1a1);
-      transition:0.3s;">
-                    </div>
+            <div class="delivery-box" id="freeDeliveryBox">
+                <div class="delivery-copy" id="freeText"></div>
+                <div class="progress-track">
+                    <div id="freeBar" class="progress-bar"></div>
                 </div>
             </div>
-
             <div class="bill-box">
-                <div style="display:flex; justify-content:space-between; font-weight:800; font-size:18px;">
-                    <span>Total</span> <span id="total">₹0</span>
-                </div>
+                <div><span>Subtotal</span><strong id="subtotal">Rs. 0</strong></div>
+                <div><span>Delivery</span><strong id="delivery">Rs. 0</strong></div>
+                <div class="grand-total"><span>Total</span><strong id="total">Rs. 0</strong></div>
             </div>
-            <button class="checkout-btn" id="openFormBtn">Checkout Now <i class='bx bx-right-arrow-alt'></i></button>
+            <button class="checkout-btn" id="openFormBtn" type="button">
+                Checkout on WhatsApp
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
         </div>
     </div>
 
-    <div class="modal-overlay" id="formModalBg">
+    <div class="modal-overlay" id="formModalBg" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
         <div class="modal-card">
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <h2 style="font-weight:800;">Delivery Details 📍</h2>
-                <i class='bx bx-x' style="font-size:28px; cursor:pointer;" id="closeFormBtn"></i>
+            <div class="modal-header">
+                <div>
+                    <span class="eyebrow dark">Almost done</span>
+                    <h2 id="detailsTitle">Delivery Details</h2>
+                </div>
+                <button class="icon-btn close-btn" id="closeFormBtn" type="button" aria-label="Close delivery form">
+                    <i class='bx bx-x'></i>
+                </button>
             </div>
-            <input type="text" id="userName" class="form-input" placeholder="Full Name">
-            <input type="number" id="userPhone" class="form-input" placeholder="WhatsApp Number">
-            <textarea id="userAddress" class="form-input" placeholder="Complete Address" rows="3"></textarea>
+            <label class="field-label" for="userName">Full name</label>
+            <input type="text" id="userName" class="form-input" placeholder="Enter full name">
+            <label class="field-label" for="userPhone">WhatsApp number</label>
+            <input type="tel" id="userPhone" class="form-input" placeholder="Enter mobile number">
+            <label class="field-label" for="userAddress">Complete address</label>
+            <textarea id="userAddress" class="form-input" placeholder="House no, area, landmark" rows="3"></textarea>
 
-            <button class="checkout-btn" style="background:var(--dark);" id="finalCheckoutBtn">Confirm Order via WhatsApp</button>
+            <button class="checkout-btn" id="finalCheckoutBtn" type="button">
+                Confirm Order
+                <i class='bx bxl-whatsapp'></i>
+            </button>
         </div>
     </div>
 
-    <div class="toast" id="toast"></div>
-
-    <script>
-    </script>
-    <!-- IMAGE PREVIEW MODAL -->
-    <div class="modal-overlay" id="imgModal">
-        <div class="modal-card" style="padding:0; position:relative;">
-
-            <!-- CLOSE BUTTON -->
-            <span onclick="closeImg()" style="
-      position:absolute;
-      top:12px;
-      right:12px;
-      z-index:10;
-      font-size:28px;
-      color:white;
-      background:rgba(0,0,0,0.6);
-      width:42px;
-      height:42px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      cursor:pointer;
-    ">✕</span>
-
-            <!-- IMAGE -->
-            <img id="previewImg" src="" style="
-      width:100%;
-      max-height:90vh;
-      object-fit:contain;
-      border-radius:0 0 20px 20px;
-      background:black;
-    ">
+    <div class="modal-overlay image-modal" id="imgModal" role="dialog" aria-modal="true" aria-label="Product image preview">
+        <div class="image-modal-card">
+            <button class="icon-btn image-close" onclick="closeImg()" type="button" aria-label="Close image preview">
+                <i class='bx bx-x'></i>
+            </button>
+            <img id="previewImg" src="" alt="Product preview">
         </div>
     </div>
 
-    <script src="js/app.js"></script>
-
-    <!-- Product Detail Modal -->
-    <div id="productModal" class="product-modal">
+    <div id="productModal" class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
         <div class="product-modal-content">
-
-            <span class="close-product" onclick="closeProductModal()">✕</span>
-
-            <img id="modalImg" class="modal-product-img">
-
+            <button class="icon-btn close-product" onclick="closeProductModal()" type="button" aria-label="Close product">
+                <i class='bx bx-x'></i>
+            </button>
+            <img id="modalImg" class="modal-product-img" alt="">
             <h2 id="modalName"></h2>
-
             <div class="modal-price">
                 <span id="modalPrice"></span>
                 <span id="modalMrp"></span>
             </div>
-
-            <button id="modalAddBtn" class="modal-add-btn">
-      Add To Cart
-    </button>
-
+            <button id="modalAddBtn" class="modal-add-btn" type="button">Add To Cart</button>
         </div>
     </div>
 
-    <div class="bottom-nav">
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-        <div class="nav-item active-nav" onclick="scrollToTop()">
-            <div>🏠</div>
+    <nav class="bottom-nav" aria-label="Primary navigation">
+        <button class="nav-item active-nav" type="button" onclick="scrollToTop()">
+            <i class='bx bx-home-alt'></i>
             <span>Home</span>
-        </div>
-
-        <div class="nav-item" onclick="focusSearch()">
-            <div>🔍</div>
+        </button>
+        <button class="nav-item" type="button" onclick="focusSearch()">
+            <i class='bx bx-search'></i>
             <span>Search</span>
-        </div>
-
-        <div class="nav-item" onclick="openCartNav()">
-            <div>🛒</div>
+        </button>
+        <button class="nav-item" type="button" onclick="openCartNav()">
+            <i class='bx bx-shopping-bag'></i>
             <span>Cart</span>
-        </div>
-
-        <div class="nav-item" onclick="showOffers()">
-            <div>🎁</div>
+        </button>
+        <button class="nav-item" type="button" onclick="showOffers()">
+            <i class='bx bx-purchase-tag'></i>
             <span>Offers</span>
-        </div>
+        </button>
+    </nav>
 
-    </div>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
