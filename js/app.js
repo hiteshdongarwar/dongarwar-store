@@ -661,3 +661,18 @@ function setProducts(firebaseProducts) {
 
     console.log("Products Rendered =", products.length);
 }
+
+function openAdminPanel() {
+
+    const password = prompt("Enter Admin Password");
+
+    if (password === "Hitesh@737793545") {
+
+        window.location.href = "admin.html";
+
+    } else if (password !== null) {
+
+        showToast("Wrong Password");
+
+    }
+}

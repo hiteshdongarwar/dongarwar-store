@@ -1024,6 +1024,8 @@ img {
     z-index: 120;
     height: var(--bottom-nav-height);
     display: grid;
+    justify-content: space-around;
+    align-items: center;
     grid-template-columns: repeat(4, 1fr);
     background: rgba(255, 255, 255, 0.96);
     border-top: 1px solid var(--line);
@@ -1041,6 +1043,8 @@ img {
     gap: 3px;
     font-size: 11px;
     font-weight: 800;
+    flex: 1;
+    min-width: 0;
 }
 
 .nav-item i {
@@ -1052,129 +1056,104 @@ img {
 }
 
 @media (max-width: 760px) {
-    :root {
+     :root {
         --bottom-nav-height: 68px;
     }
-
     .container {
         padding-inline: 12px;
     }
-
     .hero-banner {
         min-height: 238px;
     }
-
     .hero-content {
         min-height: 238px;
         padding: 20px;
     }
-
     .hero-content p {
         font-size: 15px;
         line-height: 1.45;
     }
-
     .hero-actions {
         margin-top: 16px;
     }
-
     .primary-action,
     .secondary-action {
         min-height: 44px;
         padding-inline: 13px;
         font-size: 14px;
     }
-
     .store-strip {
         grid-template-columns: 1fr;
         gap: 8px;
     }
-
     .store-strip div {
         min-height: 48px;
         padding: 10px;
     }
-
     .toolbar {
         margin-inline: -12px;
         padding-inline: 12px;
     }
-
     .filter-row {
         grid-template-columns: 1fr;
         gap: 8px;
     }
-
     .sort-control {
         width: 100%;
         justify-content: space-between;
     }
-
     .sort-control select {
         width: 100%;
         max-width: none;
     }
-
     .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 9px;
     }
-
     .card-body {
         padding: 9px;
     }
-
     .category-label,
     .stock-note {
         font-size: 10px;
     }
-
     .card-title {
         min-height: 40px;
         font-size: 13px;
     }
-
     .selling-price {
         font-size: 16px;
     }
-
     .mrp,
     .discount {
         font-size: 11px;
     }
-
     .add-btn {
         width: 36px;
         min-width: 36px;
         height: 36px;
     }
-
     .add-btn.out {
         min-width: 72px;
         font-size: 11px;
     }
-
     .variant-btn {
         height: 28px;
         padding: 0 7px;
         font-size: 11px;
     }
-
     .modal-card {
         max-height: 92vh;
         padding: 14px;
         padding-bottom: 18px;
     }
-
     .cart-item {
         grid-template-columns: 46px minmax(0, 1fr);
     }
-
     .cart-thumb {
         width: 46px;
         height: 46px;
     }
-
     .qty-ctrl {
         grid-column: 2;
         width: 96px;
