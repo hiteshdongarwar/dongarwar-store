@@ -126,7 +126,7 @@ img {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius);
-    background-image: linear-gradient(90deg, rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.54), rgba(17, 24, 39, 0.18)), url("../images/banner2..jpeg");
+    background-image: linear-gradient(90deg, rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.54), rgba(17, 24, 39, 0.18)), url("../images/banner2..png");
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow);
@@ -309,9 +309,9 @@ img {
 .chips {
     display: flex;
     gap: 9px;
-    margin-top: 11px;
     overflow-x: auto;
     scrollbar-width: none;
+    min-width: 0;
 }
 
 .chips::-webkit-scrollbar,
@@ -336,6 +336,40 @@ img {
     background: var(--ink);
     border-color: var(--ink);
     color: #fff;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-top: 11px;
+}
+
+.sort-control {
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--muted);
+}
+
+.sort-control i {
+    font-size: 18px;
+}
+
+.sort-control select {
+    max-width: 104px;
+    border: 0;
+    background: transparent;
+    color: #374151;
+    outline: none;
+    font-size: 12px;
+    font-weight: 800;
 }
 
 .section-head {
@@ -1018,41 +1052,133 @@ img {
 }
 
 @media (max-width: 760px) {
+    :root {
+        --bottom-nav-height: 68px;
+    }
+
     .container {
         padding-inline: 12px;
     }
+
     .hero-banner {
-        min-height: 280px;
+        min-height: 238px;
     }
+
     .hero-content {
-        min-height: 280px;
-        padding: 24px;
+        min-height: 238px;
+        padding: 20px;
     }
+
+    .hero-content p {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    .hero-actions {
+        margin-top: 16px;
+    }
+
+    .primary-action,
+    .secondary-action {
+        min-height: 44px;
+        padding-inline: 13px;
+        font-size: 14px;
+    }
+
     .store-strip {
         grid-template-columns: 1fr;
+        gap: 8px;
     }
+
+    .store-strip div {
+        min-height: 48px;
+        padding: 10px;
+    }
+
     .toolbar {
         margin-inline: -12px;
         padding-inline: 12px;
     }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .sort-control {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sort-control select {
+        width: 100%;
+        max-width: none;
+    }
+
     .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 9px;
     }
+
     .card-body {
-        padding: 10px;
+        padding: 9px;
     }
+
+    .category-label,
+    .stock-note {
+        font-size: 10px;
+    }
+
     .card-title {
         min-height: 40px;
-        font-size: 14px;
+        font-size: 13px;
     }
+
     .selling-price {
-        font-size: 17px;
+        font-size: 16px;
     }
+
+    .mrp,
+    .discount {
+        font-size: 11px;
+    }
+
     .add-btn {
-        width: 38px;
-        min-width: 38px;
-        height: 38px;
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+    }
+
+    .add-btn.out {
+        min-width: 72px;
+        font-size: 11px;
+    }
+
+    .variant-btn {
+        height: 28px;
+        padding: 0 7px;
+        font-size: 11px;
+    }
+
+    .modal-card {
+        max-height: 92vh;
+        padding: 14px;
+        padding-bottom: 18px;
+    }
+
+    .cart-item {
+        grid-template-columns: 46px minmax(0, 1fr);
+    }
+
+    .cart-thumb {
+        width: 46px;
+        height: 46px;
+    }
+
+    .qty-ctrl {
+        grid-column: 2;
+        width: 96px;
+        margin-top: 6px;
     }
 }
 
