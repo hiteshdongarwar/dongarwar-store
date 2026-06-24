@@ -94,11 +94,34 @@
 
 <body>
 
-    <div class="container">
+    <div id="loginBox" class="card" style="max-width:400px;margin:30px auto;">
+
+        <h2>Admin Login</h2>
+
+        <input id="email" type="email" placeholder="Email">
+
+        <input id="password" type="password" placeholder="Password">
+
+        <button class="add-btn" onclick="adminLogin()">
+        Login
+    </button>
+
+    </div>
+
+    <div class="container" id="adminPanel" style="display:none;">
 
         <div class="card">
 
             <h2>Add Product</h2>
+            <button onclick="logoutAdmin()" style="
+    background:#ef4444;
+    color:white;
+    padding:10px 14px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:15px;">
+    Logout
+</button>
 
             <input id="name" placeholder="Product Name">
 

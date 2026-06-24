@@ -10,6 +10,13 @@ import {
     updateDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCJTHgfj0HlORoUH_T-Yu3sxsTXxXcVfIs",
     authDomain: "dongarwar-store-63517.firebaseapp.com",
@@ -22,6 +29,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 window.addProduct = async function() {
 
@@ -60,6 +68,62 @@ window.addProduct = async function() {
 
     loadProducts();
 };
+
+window.adminLogin = async function() {
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    try {
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    } catch (error) {
+
+        alert("Wrong Email or Password");
+
+    }
+};
+
+window.logoutAdmin = async function() {
+
+    await signOut(auth);
+
+};
+
+onAuthStateChanged(auth, (user) => {
+
+    if (
+        user &&
+        user.email === "hiteshdongarwar547@gmail.com"
+    ) {
+
+        document.getElementById("loginBox")
+            .style.display = "none";
+
+        document.getElementById("adminPanel")
+            .style.display = "block";
+
+        loadProducts();
+
+    } else {
+
+        document.getElementById("loginBox")
+            .style.display = "block";
+
+        document.getElementById("adminPanel")
+            .style.display = "none";
+
+    }
+
+});
 
 async function loadProducts() {
 
@@ -162,7 +226,6 @@ window.editProduct = async function(
     loadProducts();
 };
 
-loadProducts();
 
 window.addSizeField = function() {
 

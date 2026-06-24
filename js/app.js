@@ -666,7 +666,7 @@ function openAdminPanel() {
 
     const password = prompt("Enter Admin Password");
 
-    if (password === "Hitesh@737793545") {
+    if (password === "Hitesh@7377") {
 
         window.location.href = "admin.html";
 
