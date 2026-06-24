@@ -96,6 +96,8 @@ window.logoutAdmin = async function() {
 
     await signOut(auth);
 
+    window.location.href = "index.html";
+
 };
 
 onAuthStateChanged(auth, (user) => {
